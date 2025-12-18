@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './TopUpPage.css';
 import logo from '../assets/Logo.png';
 import profilePhoto from '../assets/Profile Photo.png';
-import backgroundSaldo from '../assets/Background Saldo.png';
+
 
 const API_BASE_URL = 'https://take-home-test-api.nutech-integrasi.com';
 
@@ -16,6 +16,7 @@ function TopUpPage() {
     const [modalType, setModalType] = useState('confirm');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showBalance, setShowBalance] = useState(false);
 
     const quickAmounts = [10000, 20000, 50000, 100000, 250000, 500000];
 
@@ -49,7 +50,12 @@ function TopUpPage() {
         };
 
         fetchData();
+        fetchData();
     }, [navigate]);
+
+    const toggleBalance = () => {
+        setShowBalance(!showBalance);
+    };
 
     const handleAmountChange = (e) => {
         const value = e.target.value.replace(/\D/g, '');
@@ -137,9 +143,23 @@ function TopUpPage() {
                         <p className="welcome-text">Selamat datang,</p>
                         <h2 className="user-name">{profile ? `${profile.first_name} ${profile.last_name}` : 'User'}</h2>
                     </div>
-                    <div className="balance-section" style={{ backgroundImage: `url(${backgroundSaldo})` }}>
+                    <div className="balance-section">
                         <p className="balance-label">Saldo anda</p>
-                        <h2 className="balance-amount">Rp {balance !== null ? balance.toLocaleString('id-ID') : '...'}</h2>
+                        <h2 className="balance-amount">
+                            Rp {showBalance ? (balance !== null ? balance.toLocaleString('id-ID') : '...') : '•••••••'}
+                        </h2>
+                        <button className="toggle-balance-btn" onClick={toggleBalance} aria-label={showBalance ? "Sembunyikan Saldo" : "Lihat Saldo"}>
+                            <span className="balance-label">Lihat Saldo</span>
+                            {showBalance ? (
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="white" />
+                                </svg>
+                            ) : (
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 7C14.76 7 17 9.24 17 12C17 12.86 16.79 13.66 16.42 14.38L18.66 16.62C19.96 15.35 20.88 13.78 21.26 12C19.58 7.39 15.17 4 10 4C8.42 4 6.91 4.33 5.54 4.9L7.4 6.76C8.2 6.27 9.08 6 10 6L12 7ZM2.53 2.81L1.27 4.08L4.35 7.16C2.77 8.44 1.55 10.1 1 12C2.68 16.61 7.09 20 12.26 20C13.73 20 15.12 19.7 16.41 19.16L19.23 21.98L20.5 20.71L2.53 2.81ZM12 17C9.24 17 7 14.76 7 12C7 11.13 7.23 10.32 7.6 9.61L13.6 15.61C13.11 15.86 12.57 16 12 16V17Z" fill="white" />
+                                </svg>
+                            )}
+                        </button>
                     </div>
                 </section>
 
