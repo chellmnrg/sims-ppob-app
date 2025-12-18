@@ -1,0 +1,395 @@
+.topup-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 120px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.header-left span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+    color: #f13b2e;
+}
+
+.topup-main {
+    flex: 1;
+    padding: 30px 120px;
+}
+
+.profile-balance-section {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.profile-section {
+    flex: 0 0 40%;
+}
+
+.profile-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+}
+
+.welcome-text {
+    margin: 0;
+    font-size: 20px;
+    color: #1a1a1a;
+}
+
+.user-name {
+    margin: 5px 0 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.balance-section {
+    flex: 1;
+    background-color: #f13b2e;
+    color: #fff;
+    border-radius: 16px;
+    padding: 25px 30px;
+    background-size: cover;
+    background-position: right center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.balance-label {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+.balance-amount {
+    margin: 8px 0 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.topup-form-section {
+    background-color: transparent;
+}
+
+.form-label {
+    margin: 0;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.form-title {
+    margin: 5px 0 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.error-message {
+    color: #f13b2e;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.topup-content {
+    display: flex;
+    gap: 30px;
+}
+
+.topup-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topup-right {
+    flex: 1;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.topup-input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.topup-input:focus {
+    border-color: #f13b2e;
+}
+
+.topup-input::placeholder {
+    color: #aaa;
+}
+
+.topup-submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f13b2e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.topup-submit-btn:hover:not(.disabled) {
+    background-color: #d32f2f;
+}
+
+.topup-submit-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.quick-amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.quick-amount-btn {
+    padding: 18px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quick-amount-btn:hover {
+    border-color: #f13b2e;
+    color: #f13b2e;
+}
+
+.quick-amount-btn.active {
+    background-color: #f13b2e;
+    color: #fff;
+    border-color: #f13b2e;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 40px 50px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 350px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-icon-img {
+    margin-bottom: 20px;
+}
+
+.modal-icon-img img {
+    width: 60px;
+    height: 60px;
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+}
+
+.modal-icon.success {
+    color: #4caf50;
+    border: 3px solid #4caf50;
+}
+
+.modal-icon.error {
+    color: #f13b2e;
+    border: 3px solid #f13b2e;
+}
+
+.modal-text {
+    margin: 0 0 5px;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.modal-amount {
+    margin: 0 0 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.success-text {
+    color: #4caf50;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 0 20px;
+}
+
+.error-text {
+    color: #f13b2e;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 0 20px;
+}
+
+.modal-confirm-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: transparent;
+    color: #f13b2e;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.modal-confirm-btn:hover {
+    text-decoration: underline;
+}
+
+.modal-cancel-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #999;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-cancel-btn:hover {
+    color: #666;
+}
+
+.modal-back-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #f13b2e;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-back-btn:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+
+    .topup-header,
+    .topup-main {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+@media (max-width: 900px) {
+    .topup-content {
+        flex-direction: column;
+    }
+
+    .quick-amounts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .topup-header,
+    .topup-main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .profile-balance-section {
+        flex-direction: column;
+    }
+
+    .quick-amounts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
